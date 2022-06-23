@@ -19,7 +19,6 @@ ext {
             // https://github.com/material-components/material-components-android/releases
             material       : "1.6.1",
             // https://github.com/google/accompanist/tree/main/permissions
-            permissions    : "0.23.1",
-            // https://developer.android.com/jetpack/androidx/releases/camera
+            permissions    : "0.23.1"
     ]
 }
