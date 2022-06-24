@@ -5,7 +5,6 @@ plugins {
 }
 
 android {
-    namespace 'com.patochallen.permissionsexample'
     compileSdk 32
 
     defaultConfig {
@@ -62,6 +61,9 @@ dependencies {
 
     // Accompanist Permissions
     implementation "com.google.accompanist:accompanist-permissions:$rootProject.ext.versions.permissions"
+
+    // Accompanist System UI Controller
+    implementation "com.google.accompanist:accompanist-systemuicontroller:$rootProject.ext.versions.permissions"
 
     // Test
     testImplementation "junit:junit:$rootProject.ext.versions.junit"
