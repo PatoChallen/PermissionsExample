@@ -28,46 +28,43 @@ import com.google.accompanist.permissions.rememberPermissionState
 @Composable
 fun RequestPermissions(
     permission: String,
+    permissionState: PermissionState = rememberPermissionState(permission),
     permissionNotGrantedContent: @Composable (() -> Unit),
+    showRationalContent: @Composable (() -> Unit),
     permissionDeniedContent: @Composable (() -> Unit),
     content: @Composable (() -> Unit)
 ) {
     val context = LocalContext.current
-    val permissionState = rememberPermissionState(permission = permission)
 
     when {
         permissionState.hasPermission -> {
             content()
+        }
+        permissionState.permissionRequested && permissionState.shouldShowRationale -> {
+            PermissionContentWrapper(
+                buttonText = "Request permission",
+                content = showRationalContent
+            ) {
+                permissionState.launchPermissionRequest()
+            }
         }
         permissionState.hasPermissionDenied() -> {
             PermissionContentWrapper(
                 buttonText = "Open settings",
                 content = permissionDeniedContent
             ) {
-                context.goToSettings()
+                context.launchSettingsIntent()
             }
         }
         else -> {
             PermissionContentWrapper(
-                buttonText = "Request camera permissions",
+                buttonText = "Request permission",
                 content = permissionNotGrantedContent
             ) {
                 permissionState.launchPermissionRequest()
             }
         }
     }
-}
-
-private fun PermissionState.hasPermissionDenied() =
-    permissionRequested && shouldShowRationale.not()
-
-private fun Context.goToSettings() {
-    startActivity(
-        Intent(
-            Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-            Uri.fromParts("package", packageName, null)
-        )
-    )
 }
 
 @Composable
@@ -98,4 +95,16 @@ private fun PermissionContentWrapper(
             )
         }
     }
+}
+
+private fun PermissionState.hasPermissionDenied() =
+    permissionRequested && shouldShowRationale.not()
+
+private fun Context.launchSettingsIntent() {
+    startActivity(
+        Intent(
+            Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+            Uri.fromParts("package", packageName, null)
+        )
+    )
 }

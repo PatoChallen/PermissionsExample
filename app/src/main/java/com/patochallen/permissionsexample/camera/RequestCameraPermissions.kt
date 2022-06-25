@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalPermissionsApi::class)
+
 package com.patochallen.permissionsexample.camera
 
 import android.Manifest.permission
@@ -15,37 +17,35 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.sharp.AccountCircle
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.patochallen.permissionsexample.R.drawable
 import com.patochallen.permissionsexample.permissions.RequestPermissions
 import com.patochallen.permissionsexample.ui.theme.onWarning
 import com.patochallen.permissionsexample.ui.theme.warning
 
 @Composable
-fun RequestCameraPermissions() {
+fun RequestCameraPermissions(
+    content: @Composable (() -> Unit)
+) {
     RequestPermissions(
         permission = permission.CAMERA,
         permissionNotGrantedContent = { PermissionNotGrantedContent() },
-        permissionDeniedContent = { PermissionDeniedContent() }
-    ) {
-        PermissionGrantedContent()
-    }
+        showRationalContent = { PermissionNotGrantedContent() },
+        permissionDeniedContent = { PermissionDeniedContent() },
+        content = content
+    )
 }
 
 @Composable
@@ -134,33 +134,6 @@ fun PermissionDeniedContent() {
             style = MaterialTheme.typography.subtitle1,
             textAlign = TextAlign.Center,
             lineHeight = 25.sp
-        )
-    }
-}
-
-@Composable
-private fun PermissionGrantedContent() {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Black)
-    ) {
-        IconButton(
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .padding(bottom = 50.dp),
-            onClick = {},
-            content = {
-                Icon(
-                    imageVector = Icons.Sharp.AccountCircle,
-                    contentDescription = "Take picture",
-                    tint = Color.White,
-                    modifier = Modifier
-                        .size(100.dp)
-                        .padding(1.dp)
-                        .border(1.dp, Color.White, CircleShape)
-                )
-            }
         )
     }
 }
