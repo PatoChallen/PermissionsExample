@@ -1,11 +1,5 @@
-@file:OptIn(ExperimentalPermissionsApi::class)
+package com.patochallen.permissions.permissions
 
-package com.patochallen.permissionsexample.permissions
-
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
-import android.provider.Settings
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -21,11 +15,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.google.accompanist.permissions.PermissionState
-import com.google.accompanist.permissions.rememberPermissionState
+import com.patochallen.permissions.model.ExperimentalApi
+import com.patochallen.permissions.model.PermissionState
+import com.patochallen.permissions.model.PermissionStatus.Denied
+import com.patochallen.permissions.model.PermissionStatus.Granted
+import com.patochallen.permissions.model.PermissionStatus.ShowRational
+import com.patochallen.permissions.model.PermissionStatus.Unrequested
+import com.patochallen.permissions.model.rememberPermissionState
+import com.patochallen.permissions.utils.launchSettingsIntent
 
 @Composable
+@ExperimentalApi
 fun RequestPermissions(
     permission: String,
     permissionState: PermissionState = rememberPermissionState(permission),
@@ -36,32 +36,32 @@ fun RequestPermissions(
 ) {
     val context = LocalContext.current
 
-    when {
-        permissionState.hasPermission -> {
+    when (permissionState.status) {
+        Granted -> {
             content()
         }
-        permissionState.permissionRequested && permissionState.shouldShowRationale -> {
+        ShowRational -> {
             PermissionContentWrapper(
-                buttonText = "Request permission",
+                buttonText = "Continue",
                 content = showRationalContent
             ) {
                 permissionState.launchPermissionRequest()
             }
         }
-        permissionState.hasPermissionDenied() -> {
+        Unrequested -> {
+            PermissionContentWrapper(
+                buttonText = "Continue",
+                content = permissionNotGrantedContent
+            ) {
+                permissionState.launchPermissionRequest()
+            }
+        }
+        is Denied -> {
             PermissionContentWrapper(
                 buttonText = "Open settings",
                 content = permissionDeniedContent
             ) {
                 context.launchSettingsIntent()
-            }
-        }
-        else -> {
-            PermissionContentWrapper(
-                buttonText = "Request permission",
-                content = permissionNotGrantedContent
-            ) {
-                permissionState.launchPermissionRequest()
             }
         }
     }
@@ -73,7 +73,7 @@ private fun PermissionContentWrapper(
     content: @Composable (() -> Unit),
     onClick: () -> Unit
 ) {
-    Column(modifier = Modifier.padding(32.dp)) {
+    Column {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -84,7 +84,9 @@ private fun PermissionContentWrapper(
         }
         Button(
             onClick = onClick,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 32.dp, vertical = 16.dp),
             shape = CircleShape,
             contentPadding = PaddingValues(15.dp)
         ) {
@@ -95,16 +97,4 @@ private fun PermissionContentWrapper(
             )
         }
     }
-}
-
-private fun PermissionState.hasPermissionDenied() =
-    permissionRequested && shouldShowRationale.not()
-
-private fun Context.launchSettingsIntent() {
-    startActivity(
-        Intent(
-            Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-            Uri.fromParts("package", packageName, null)
-        )
-    )
 }

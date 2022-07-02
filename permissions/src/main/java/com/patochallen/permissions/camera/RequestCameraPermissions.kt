@@ -1,6 +1,4 @@
-@file:OptIn(ExperimentalPermissionsApi::class)
-
-package com.patochallen.permissionsexample.camera
+package com.patochallen.permissions.camera
 
 import android.Manifest.permission
 import androidx.compose.foundation.Image
@@ -29,13 +27,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.patochallen.permissionsexample.R.drawable
-import com.patochallen.permissionsexample.permissions.RequestPermissions
-import com.patochallen.permissionsexample.ui.theme.onWarning
-import com.patochallen.permissionsexample.ui.theme.warning
+import com.patochallen.permissions.R
+import com.patochallen.permissions.model.ExperimentalApi
+import com.patochallen.permissions.permissions.RequestPermissions
 
 @Composable
+@ExperimentalApi
 fun RequestCameraPermissions(
     content: @Composable (() -> Unit)
 ) {
@@ -60,7 +57,7 @@ fun PermissionNotGrantedContent() {
             contentAlignment = Alignment.Center
         ) {
             Image(
-                painter = painterResource(id = drawable.camera),
+                painter = painterResource(id = R.drawable.camera),
                 contentDescription = "",
                 modifier = Modifier
                     .fillMaxSize()
@@ -98,24 +95,24 @@ fun PermissionDeniedContent() {
             contentAlignment = Alignment.Center
         ) {
             Image(
-                painter = painterResource(id = drawable.camera),
+                painter = painterResource(id = R.drawable.camera),
                 contentDescription = "",
                 modifier = Modifier
                     .fillMaxSize()
                     .offset(x = 30.dp, y = 20.dp)
             )
             Image(
-                painter = painterResource(id = drawable.ic_warning),
+                painter = painterResource(id = R.drawable.ic_warning),
                 contentDescription = "",
                 modifier = Modifier
                     .size(100.dp)
                     .align(Alignment.TopStart)
                     .offset(x = 25.unaryMinus().dp, y = 25.unaryMinus().dp)
                     .shadow(5.dp, CircleShape, false)
-                    .background(MaterialTheme.colors.warning, CircleShape)
+                    .background(MaterialTheme.colors.error, CircleShape)
                     .padding(15.dp)
                     .padding(bottom = 7.dp),
-                colorFilter = ColorFilter.tint(color = MaterialTheme.colors.onWarning)
+                colorFilter = ColorFilter.tint(color = MaterialTheme.colors.onError)
             )
         }
         Spacer(modifier = Modifier.height(70.dp))
@@ -126,11 +123,16 @@ fun PermissionDeniedContent() {
         )
         Spacer(modifier = Modifier.height(30.dp))
         Text(
-            text = "The permission has been denied\ntwo times, please open settings\nand grant permissions manually",
+            text = "The permission has been denied.\nPlease open settings and\ngrant the permission manually.",
             modifier = Modifier
                 .fillMaxWidth()
-                .border(2.dp, MaterialTheme.colors.warning, RoundedCornerShape(10.dp))
-                .padding(20.dp),
+                .padding(horizontal = 32.dp)
+                .border(2.dp, MaterialTheme.colors.error, RoundedCornerShape(16.dp))
+                .background(
+                    MaterialTheme.colors.error.copy(alpha = 0.1f),
+                    RoundedCornerShape(16.dp)
+                )
+                .padding(16.dp),
             style = MaterialTheme.typography.subtitle1,
             textAlign = TextAlign.Center,
             lineHeight = 25.sp
