@@ -41,7 +41,8 @@ internal fun Activity.shouldShowRationale(permission: String): Boolean =
     ActivityCompat.shouldShowRequestPermissionRationale(this, permission)
 
 /**
- * Launch's an intent that open the app settings to allow the user to grant the permission manually.
+ * Launch's an intent that open the app settings
+ * to allow the user to grant the permission manually.
  */
 internal fun Context.launchSettingsIntent() {
     startActivity(

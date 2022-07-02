@@ -3,8 +3,9 @@ package com.patochallen.permissions.model
 import androidx.compose.runtime.Stable
 
 /**
- * Model of the status of a permission. It can be [Granted], [Denied], [ShowRational] or [Unrequested].
- * If denied, the user might need to be presented with a rationale.
+ * Model of the status of a permission.
+ * It can be [Granted], [Denied], [ShowRational] or [Unrequested].
+ * If denied, it should show a rationale to the user.
  */
 @ExperimentalApi
 @Stable
