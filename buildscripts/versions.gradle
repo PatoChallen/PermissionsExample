@@ -18,7 +18,7 @@ ext {
             espresso       : "3.4.0",
             // https://github.com/material-components/material-components-android/releases
             material       : "1.6.1",
-            // https://github.com/google/accompanist/tree/main/permissions
-            permissions    : "0.23.1"
+            // https://github.com/google/accompanist/tree/main/systemuicontroller
+            accompanistUI    : "0.23.1"
     ]
 }

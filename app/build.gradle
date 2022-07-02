@@ -50,6 +50,8 @@ android {
 
 dependencies {
 
+    implementation project(":permissions")
+
     implementation "androidx.core:core-ktx:$rootProject.ext.versions.ktxCore"
     implementation "androidx.appcompat:appcompat:$rootProject.ext.versions.appCompat"
     implementation "com.google.android.material:material:$rootProject.ext.versions.material"
@@ -59,11 +61,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$rootProject.ext.versions.lifecycle"
     implementation "androidx.activity:activity-compose:$rootProject.ext.versions.activityCompose"
 
-    // Accompanist Permissions
-    implementation "com.google.accompanist:accompanist-permissions:$rootProject.ext.versions.permissions"
-
     // Accompanist System UI Controller
-    implementation "com.google.accompanist:accompanist-systemuicontroller:$rootProject.ext.versions.permissions"
+    implementation "com.google.accompanist:accompanist-systemuicontroller:$rootProject.ext.versions.accompanistUI"
 
     // Test
     testImplementation "junit:junit:$rootProject.ext.versions.junit"
