@@ -20,7 +20,6 @@ import com.patochallen.permissions.model.PermissionState
 import com.patochallen.permissions.model.PermissionStatus.Denied
 import com.patochallen.permissions.model.PermissionStatus.Granted
 import com.patochallen.permissions.model.PermissionStatus.ShowRational
-import com.patochallen.permissions.model.PermissionStatus.Unrequested
 import com.patochallen.permissions.model.rememberPermissionState
 import com.patochallen.permissions.utils.launchSettingsIntent
 
@@ -29,7 +28,6 @@ import com.patochallen.permissions.utils.launchSettingsIntent
 fun RequestPermissions(
     permission: String,
     permissionState: PermissionState = rememberPermissionState(permission),
-    permissionNotGrantedContent: @Composable (() -> Unit),
     showRationalContent: @Composable (() -> Unit),
     permissionDeniedContent: @Composable (() -> Unit),
     content: @Composable (() -> Unit)
@@ -44,14 +42,6 @@ fun RequestPermissions(
             PermissionContentWrapper(
                 buttonText = "Continue",
                 content = showRationalContent
-            ) {
-                permissionState.launchPermissionRequest()
-            }
-        }
-        Unrequested -> {
-            PermissionContentWrapper(
-                buttonText = "Continue",
-                content = permissionNotGrantedContent
             ) {
                 permissionState.launchPermissionRequest()
             }

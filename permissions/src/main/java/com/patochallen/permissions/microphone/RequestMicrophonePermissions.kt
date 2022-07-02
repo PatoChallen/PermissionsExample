@@ -38,15 +38,14 @@ fun RequestMicrophonePermissions(
 ) {
     RequestPermissions(
         permission = permission.RECORD_AUDIO,
-        permissionNotGrantedContent = { PermissionNotGrantedContent() },
-        showRationalContent = { PermissionNotGrantedContent() },
+        showRationalContent = { ShowRationalContent() },
         permissionDeniedContent = { PermissionDeniedContent() },
         content = content
     )
 }
 
 @Composable
-fun PermissionNotGrantedContent() {
+fun ShowRationalContent() {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Box(
             modifier = Modifier

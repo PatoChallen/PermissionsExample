@@ -38,15 +38,14 @@ fun RequestCameraPermissions(
 ) {
     RequestPermissions(
         permission = permission.CAMERA,
-        permissionNotGrantedContent = { PermissionNotGrantedContent() },
-        showRationalContent = { PermissionNotGrantedContent() },
+        showRationalContent = { ShowRationalContent() },
         permissionDeniedContent = { PermissionDeniedContent() },
         content = content
     )
 }
 
 @Composable
-fun PermissionNotGrantedContent() {
+fun ShowRationalContent() {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Box(
             modifier = Modifier

@@ -35,11 +35,15 @@ internal fun rememberMutablePermissionState(
     val context = LocalContext.current
     val lifecycle = LocalLifecycleOwner.current.lifecycle
 
-    val permissionState = remember(permission) {
-        MutablePermissionState(permission, context, context.findActivity())
+    val permissionState: MutablePermissionState = remember(permission) {
+        MutablePermissionState(
+            permission = permission,
+            context = context,
+            activity = context.findActivity()
+        )
     }
 
-    val lifecycleObserver = remember(permissionState) {
+    val lifecycleObserver: LifecycleEventObserver = remember(permissionState) {
         LifecycleEventObserver { _, event ->
             if (event == ON_RESUME && permissionState.status != PermissionStatus.Granted) {
                 permissionState.refreshPermissionStatus()
@@ -47,7 +51,6 @@ internal fun rememberMutablePermissionState(
         }
     }
 
-    // Remember RequestPermission launcher and assign it to permissionState
     val launcher: ManagedActivityResultLauncher<String, Boolean> =
         rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) {
             permissionState.refreshPermissionStatus()
@@ -101,16 +104,16 @@ internal class MutablePermissionState(
 
     private fun hasPermission(): Boolean =
         context.checkPermission(permission)
-            .also {
-                if (it) {
+            .also { hasPermission ->
+                if (hasPermission) {
                     setRationalViewed(false)
                 }
             }
 
     private fun shouldShowRational(): Boolean =
         activity.shouldShowRationale(permission)
-            .also {
-                if (it) {
+            .also { shouldShowRational ->
+                if (shouldShowRational) {
                     setRationalViewed(true)
                 }
             }
@@ -130,8 +133,7 @@ internal class MutablePermissionState(
     private fun getPermissionStatus(): PermissionStatus {
         return when {
             hasPermission() -> PermissionStatus.Granted
-            shouldShowRational() -> PermissionStatus.ShowRational
-            hasRationalViewed().not() -> PermissionStatus.Unrequested
+            shouldShowRational() || hasRationalViewed().not() -> PermissionStatus.ShowRational
             else -> PermissionStatus.Denied
         }
     }
