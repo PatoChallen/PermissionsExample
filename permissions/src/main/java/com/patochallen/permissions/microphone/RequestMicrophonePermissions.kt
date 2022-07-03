@@ -1,4 +1,4 @@
-package com.patochallen.sample.location
+package com.patochallen.permissions.microphone
 
 import android.Manifest.permission
 import androidx.compose.foundation.Image
@@ -27,17 +27,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.patochallen.permissions.R
 import com.patochallen.permissions.model.ExperimentalApi
 import com.patochallen.permissions.ui.RequestPermissions
-import com.patochallen.sample.R
 
-@OptIn(ExperimentalApi::class)
 @Composable
-fun RequestLocationPermissions(
+@ExperimentalApi
+fun RequestMicrophonePermissions(
     content: @Composable (() -> Unit)
 ) {
     RequestPermissions(
-        permission = permission.ACCESS_COARSE_LOCATION,
+        permission = permission.RECORD_AUDIO,
         showRationalContent = { ShowRationalContent() },
         permissionDeniedContent = { PermissionDeniedContent() },
         content = content
@@ -51,25 +51,27 @@ fun ShowRationalContent() {
             modifier = Modifier
                 .size(250.dp)
                 .shadow(15.dp, CircleShape, false)
+                .background(MaterialTheme.colors.primary, CircleShape)
                 .padding(10.dp),
             contentAlignment = Alignment.Center
         ) {
             Image(
-                painter = painterResource(id = R.drawable.location),
+                painter = painterResource(id = R.drawable.microphone),
                 contentDescription = "",
                 modifier = Modifier
                     .fillMaxSize()
+                    .padding(25.dp)
             )
         }
         Spacer(modifier = Modifier.height(70.dp))
         Text(
-            text = "Enable Location",
+            text = "Enable Microphone",
             style = MaterialTheme.typography.h5,
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(30.dp))
         Text(
-            text = "Please provide access to\nyour location, which is required\nfor use the App",
+            text = "Please provide access to\nyour microphone, which is required\nfor use the App",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(20.dp),
@@ -87,14 +89,16 @@ fun PermissionDeniedContent() {
             modifier = Modifier
                 .size(250.dp)
                 .shadow(15.dp, CircleShape, false)
+                .background(MaterialTheme.colors.primary, CircleShape)
                 .padding(10.dp),
             contentAlignment = Alignment.Center
         ) {
             Image(
-                painter = painterResource(id = R.drawable.location),
+                painter = painterResource(id = R.drawable.microphone),
                 contentDescription = "",
                 modifier = Modifier
                     .fillMaxSize()
+                    .padding(25.dp)
             )
             Image(
                 painter = painterResource(id = R.drawable.ic_warning),
@@ -112,7 +116,7 @@ fun PermissionDeniedContent() {
         }
         Spacer(modifier = Modifier.height(70.dp))
         Text(
-            text = "Enable Location",
+            text = "Enable Microphone",
             style = MaterialTheme.typography.h5,
             fontWeight = FontWeight.Bold
         )

@@ -1,4 +1,4 @@
-package com.patochallen.sample.microphone
+package com.patochallen.permissions.camera
 
 import android.Manifest.permission
 import androidx.compose.foundation.Image
@@ -27,17 +27,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.patochallen.permissions.R
 import com.patochallen.permissions.model.ExperimentalApi
 import com.patochallen.permissions.ui.RequestPermissions
-import com.patochallen.sample.R
 
-@OptIn(ExperimentalApi::class)
 @Composable
-fun RequestMicrophonePermissions(
+@ExperimentalApi
+fun RequestCameraPermissions(
     content: @Composable (() -> Unit)
 ) {
     RequestPermissions(
-        permission = permission.RECORD_AUDIO,
+        permission = permission.CAMERA,
         showRationalContent = { ShowRationalContent() },
         permissionDeniedContent = { PermissionDeniedContent() },
         content = content
@@ -56,22 +56,22 @@ fun ShowRationalContent() {
             contentAlignment = Alignment.Center
         ) {
             Image(
-                painter = painterResource(id = R.drawable.microphone),
+                painter = painterResource(id = R.drawable.camera),
                 contentDescription = "",
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(25.dp)
+                    .offset(x = 30.dp, y = 20.dp)
             )
         }
         Spacer(modifier = Modifier.height(70.dp))
         Text(
-            text = "Enable Microphone",
+            text = "Enable Camera",
             style = MaterialTheme.typography.h5,
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(30.dp))
         Text(
-            text = "Please provide access to\nyour microphone, which is required\nfor use the App",
+            text = "Please provide access to\nyour camera, which is required\nfor use the App",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(20.dp),
@@ -94,11 +94,11 @@ fun PermissionDeniedContent() {
             contentAlignment = Alignment.Center
         ) {
             Image(
-                painter = painterResource(id = R.drawable.microphone),
+                painter = painterResource(id = R.drawable.camera),
                 contentDescription = "",
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(25.dp)
+                    .offset(x = 30.dp, y = 20.dp)
             )
             Image(
                 painter = painterResource(id = R.drawable.ic_warning),
@@ -110,19 +110,19 @@ fun PermissionDeniedContent() {
                     .shadow(5.dp, CircleShape, false)
                     .background(MaterialTheme.colors.error, CircleShape)
                     .padding(15.dp)
-                    .padding(bottom = 5.dp),
+                    .padding(bottom = 7.dp),
                 colorFilter = ColorFilter.tint(color = MaterialTheme.colors.onError)
             )
         }
         Spacer(modifier = Modifier.height(70.dp))
         Text(
-            text = "Enable Microphone",
+            text = "Enable Camera",
             style = MaterialTheme.typography.h5,
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(30.dp))
         Text(
-            text = "The permission has been denied\ntwo times, please open settings\nand grant permissions manually",
+            text = "The permission has been denied.\nPlease open settings and\ngrant the permission manually.",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 32.dp)
@@ -134,8 +134,7 @@ fun PermissionDeniedContent() {
                 .padding(16.dp),
             style = MaterialTheme.typography.subtitle1,
             textAlign = TextAlign.Center,
-            lineHeight = 25.sp,
-            color = MaterialTheme.colors.onSurface
+            lineHeight = 25.sp
         )
     }
 }
