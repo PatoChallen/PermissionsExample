@@ -1,4 +1,4 @@
-package com.patochallen.permissions.permissions
+package com.patochallen.permissions.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,16 +23,16 @@ import com.patochallen.permissions.model.PermissionStatus.ShowRational
 import com.patochallen.permissions.model.rememberPermissionState
 import com.patochallen.permissions.utils.launchSettingsIntent
 
-@Composable
 @ExperimentalApi
+@Composable
 fun RequestPermissions(
     permission: String,
-    permissionState: PermissionState = rememberPermissionState(permission),
     showRationalContent: @Composable (() -> Unit),
     permissionDeniedContent: @Composable (() -> Unit),
     content: @Composable (() -> Unit)
 ) {
     val context = LocalContext.current
+    val permissionState: PermissionState = rememberPermissionState(permission)
 
     when (permissionState.status) {
         Granted -> {

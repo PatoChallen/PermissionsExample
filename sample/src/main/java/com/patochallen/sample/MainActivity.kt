@@ -10,12 +10,10 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.patochallen.permissions.camera.RequestCameraPermissions
-import com.patochallen.permissions.microphone.RequestMicrophonePermissions
-import com.patochallen.permissions.model.ExperimentalApi
+import com.patochallen.sample.camera.RequestCameraPermissions
+import com.patochallen.sample.microphone.RequestMicrophonePermissions
 import com.patochallen.sample.ui.theme.PermissionsSampleTheme
 
-@OptIn(ExperimentalApi::class)
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
