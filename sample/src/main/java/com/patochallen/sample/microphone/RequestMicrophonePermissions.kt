@@ -1,4 +1,4 @@
-package com.patochallen.permissions.microphone
+package com.patochallen.sample.microphone
 
 import android.Manifest.permission
 import androidx.compose.foundation.Image
@@ -27,12 +27,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.patochallen.permissions.R
 import com.patochallen.permissions.model.ExperimentalApi
-import com.patochallen.permissions.permissions.RequestPermissions
+import com.patochallen.permissions.ui.RequestPermissions
+import com.patochallen.sample.R
 
+@OptIn(ExperimentalApi::class)
 @Composable
-@ExperimentalApi
 fun RequestMicrophonePermissions(
     content: @Composable (() -> Unit)
 ) {

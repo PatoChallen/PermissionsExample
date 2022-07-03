@@ -13,9 +13,7 @@ import androidx.compose.runtime.Stable
 @Composable
 fun rememberPermissionState(
     permission: String
-): PermissionState {
-    return rememberMutablePermissionState(permission)
-}
+): PermissionState = rememberMutablePermissionState(permission)
 
 /**
  * A state object that control and observe if the [PermissionStatus]
