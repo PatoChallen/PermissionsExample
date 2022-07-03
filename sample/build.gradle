@@ -61,9 +61,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$rootProject.ext.versions.lifecycle"
     implementation "androidx.activity:activity-compose:$rootProject.ext.versions.activityCompose"
 
-    // Accompanist System UI Controller
-    implementation "com.google.accompanist:accompanist-systemuicontroller:$rootProject.ext.versions.accompanistUI"
-
     // Test
     testImplementation "junit:junit:$rootProject.ext.versions.junit"
     androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.versions.androidxTest"
