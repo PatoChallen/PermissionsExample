@@ -1,4 +1,4 @@
-package com.patochallen.permissionsexample
+package com.patochallen.sample
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import com.patochallen.permissions.camera.RequestCameraPermissions
 import com.patochallen.permissions.microphone.RequestMicrophonePermissions
 import com.patochallen.permissions.model.ExperimentalApi
-import com.patochallen.permissionsexample.ui.theme.PermissionsExampleTheme
+import com.patochallen.sample.ui.theme.PermissionsExampleTheme
 
 @OptIn(ExperimentalApi::class)
 class MainActivity : ComponentActivity() {

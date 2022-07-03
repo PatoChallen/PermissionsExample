@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.patochallen.permissionsexample">
+    package="com.patochallen.sample">
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PermissionsExample" >
         <activity
-            android:name="com.patochallen.permissionsexample.MainActivity"
+            android:name="com.patochallen.sample.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.PermissionsExample">
             <intent-filter>

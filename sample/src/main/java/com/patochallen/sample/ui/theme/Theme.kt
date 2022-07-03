@@ -1,4 +1,4 @@
-package com.patochallen.permissionsexample.ui.theme
+package com.patochallen.sample.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
