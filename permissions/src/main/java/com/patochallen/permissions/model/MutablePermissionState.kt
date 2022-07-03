@@ -90,7 +90,7 @@ internal class MutablePermissionState(
 
     override var status: PermissionStatus by mutableStateOf(getPermissionStatus())
 
-    override fun launchPermissionRequest() {
+    override fun requestPermission() {
         launcher?.launch(
             permission
         )

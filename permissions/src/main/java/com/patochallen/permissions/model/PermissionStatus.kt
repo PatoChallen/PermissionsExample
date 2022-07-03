@@ -10,7 +10,20 @@ import androidx.compose.runtime.Stable
 @ExperimentalApi
 @Stable
 sealed interface PermissionStatus {
+    /**
+     * Indicates that the permission was granted by the user
+     */
     object Granted : PermissionStatus
+
+    /**
+     * Indicates that the permission was already denied by the user once,
+     * and should be show a rational
+     */
     object ShowRational : PermissionStatus
+
+    /**
+     * Indicates that the user has already denied the permission,
+     * and must grant it manually from the settings
+     */
     object Denied : PermissionStatus
 }
