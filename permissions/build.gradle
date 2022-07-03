@@ -3,6 +3,7 @@ plugins {
     id "kotlin-android"
     id 'maven-publish'
 }
+group = 'com.github.patochallen'
 
 android {
     namespace 'com.patochallen.permissions'
@@ -54,7 +55,7 @@ afterEvaluate {
 
                 groupId = 'com.github.patochallen'
                 artifactId = 'compose-permissions'
-                version = '0.1.0-alpha'
+                version = '0.1.1-alpha'
             }
         }
     }
