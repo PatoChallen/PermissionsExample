@@ -1,4 +1,4 @@
-package com.patochallen.sample.location
+package com.patochallen.permissions.location
 
 import android.Manifest.permission
 import androidx.compose.foundation.Image
@@ -29,10 +29,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.patochallen.permissions.model.ExperimentalApi
 import com.patochallen.permissions.ui.RequestPermissions
-import com.patochallen.sample.R
+import com.patochallen.permissions.R
 
-@OptIn(ExperimentalApi::class)
 @Composable
+@ExperimentalApi
 fun RequestLocationPermissions(
     content: @Composable (() -> Unit)
 ) {
