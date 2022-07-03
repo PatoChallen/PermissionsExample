@@ -13,14 +13,14 @@ import androidx.compose.ui.Modifier
 import com.patochallen.permissions.camera.RequestCameraPermissions
 import com.patochallen.permissions.microphone.RequestMicrophonePermissions
 import com.patochallen.permissions.model.ExperimentalApi
-import com.patochallen.sample.ui.theme.PermissionsExampleTheme
+import com.patochallen.sample.ui.theme.PermissionsSampleTheme
 
 @OptIn(ExperimentalApi::class)
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            PermissionsExampleTheme {
+            PermissionsSampleTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
                     RequestMicrophonePermissions {
                         RequestCameraPermissions {
                             Box(contentAlignment = Alignment.Center) {
-                                Text(text = "CAMERA PERMISSION GRANTED")
+                                Text(text = "PERMISSIONS GRANTED")
                             }
                         }
                     }

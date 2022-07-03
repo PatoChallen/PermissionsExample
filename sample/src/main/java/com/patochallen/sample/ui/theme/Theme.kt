@@ -9,7 +9,7 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 
 @Composable
-fun PermissionsExampleTheme(
+fun PermissionsSampleTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {

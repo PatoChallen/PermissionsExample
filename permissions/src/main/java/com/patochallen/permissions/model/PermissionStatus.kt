@@ -1,9 +1,6 @@
 package com.patochallen.permissions.model
 
 import androidx.compose.runtime.Stable
-import com.patochallen.permissions.model.PermissionStatus.Denied
-import com.patochallen.permissions.model.PermissionStatus.Granted
-import com.patochallen.permissions.model.PermissionStatus.ShowRational
 
 /**
  * Model of the status of a permission.
