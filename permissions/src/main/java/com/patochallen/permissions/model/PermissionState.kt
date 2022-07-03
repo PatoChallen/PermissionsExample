@@ -34,9 +34,9 @@ interface PermissionState {
     val status: PermissionStatus
 
     /**
-     * Launch the [permission] request to the user.
+     * Request the [permission] to the user.
      *
-     * This launch a system dialog that asks the user if the permission must be granted or not.
+     * This opens a system dialog asking the user whether the permission should be granted or not.
      */
-    fun launchPermissionRequest()
+    fun requestPermission()
 }
