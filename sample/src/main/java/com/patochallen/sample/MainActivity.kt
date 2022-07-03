@@ -11,6 +11,7 @@ import androidx.compose.material.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.patochallen.sample.camera.RequestCameraPermissions
+import com.patochallen.sample.location.RequestLocationPermissions
 import com.patochallen.sample.microphone.RequestMicrophonePermissions
 import com.patochallen.sample.ui.theme.PermissionsSampleTheme
 
@@ -23,10 +24,12 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    RequestMicrophonePermissions {
-                        RequestCameraPermissions {
-                            Box(contentAlignment = Alignment.Center) {
-                                Text(text = "PERMISSIONS GRANTED")
+                    RequestLocationPermissions {
+                        RequestMicrophonePermissions {
+                            RequestCameraPermissions {
+                                Box(contentAlignment = Alignment.Center) {
+                                    Text(text = "PERMISSIONS GRANTED")
+                                }
                             }
                         }
                     }
