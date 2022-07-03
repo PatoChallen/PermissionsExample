@@ -6,5 +6,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Permissions Example"
-include ':app'
+include ':sample'
 include ':permissions'
