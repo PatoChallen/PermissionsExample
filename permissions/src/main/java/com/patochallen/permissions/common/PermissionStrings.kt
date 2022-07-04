@@ -12,14 +12,14 @@ import com.patochallen.permissions.location.RequestLocationPermission
 import com.patochallen.permissions.microphone.RequestMicrophonePermission
 
 /**
- * Represents the strings used in all request permission screens
+ * Represents the strings used in all permission requests
  *
- * See [RequestPermissionDefaults.cameraStrings] for the default strings used in a [RequestCameraPermission].
- * See [RequestPermissionDefaults.microphoneStrings] for the default strings used in a [RequestMicrophonePermission].
- * See [RequestPermissionDefaults.locationStrings] for the default strings used in a [RequestLocationPermission].
+ * See [PermissionDefaults.cameraStrings] for the default strings used in a [RequestCameraPermission].
+ * See [PermissionDefaults.microphoneStrings] for the default strings used in a [RequestMicrophonePermission].
+ * See [PermissionDefaults.locationStrings] for the default strings used in a [RequestLocationPermission].
  */
 @Stable
-interface RequestPermissionStrings {
+interface PermissionStrings {
     /**
      * Represents the text to be displayed in the title.
      */
@@ -52,17 +52,17 @@ interface RequestPermissionStrings {
 }
 
 /**
- * Contains the default strings used by all request permission screens
+ * Contains the default strings used in all permission requests
  */
-object RequestPermissionDefaults {
+object PermissionDefaults {
     /**
-     * Creates a [RequestPermissionStrings] that represents the default strings used in [RequestCameraPermission].
+     * Creates a [PermissionStrings] that represents the default strings used of the [RequestCameraPermission].
      *
-     * @param permissionTitle The text to be displayed in the title in [RequestCameraPermission].
-     * @param permissionRationalMessage The text to be displayed in the rational message in [RequestCameraPermission].
-     * @param permissionDeniedMessage The text to be displayed in the denied message in [RequestCameraPermission].
-     * @param continueButtonText The text to be displayed in continue button in [RequestCameraPermission].
-     * @param goToSettingsButtonText The text to be displayed in go to settings button in [RequestCameraPermission].
+     * @param permissionTitle The text to be displayed in the title of the [RequestCameraPermission].
+     * @param permissionRationalMessage The text to be displayed in the rational message of the [RequestCameraPermission].
+     * @param permissionDeniedMessage The text to be displayed in the denied message of the [RequestCameraPermission].
+     * @param continueButtonText The text to be displayed in continue button of the [RequestCameraPermission].
+     * @param goToSettingsButtonText The text to be displayed in go to settings button of the [RequestCameraPermission].
      */
     @Composable
     fun cameraStrings(
@@ -71,7 +71,7 @@ object RequestPermissionDefaults {
         permissionDeniedMessage: String = stringResource(string.camera_permission_denied_message),
         continueButtonText: String = stringResource(string.continue_button_text),
         goToSettingsButtonText: String = stringResource(string.open_settings_button_text)
-    ): RequestPermissionStrings = DefaultPermissionsStrings(
+    ): PermissionStrings = DefaultPermissionsStrings(
         permissionTitle = permissionTitle,
         permissionRationalMessage = permissionRationalMessage,
         permissionDeniedMessage = permissionDeniedMessage,
@@ -80,13 +80,13 @@ object RequestPermissionDefaults {
     )
 
     /**
-     * Creates a [RequestPermissionStrings] that represents the default strings used in [RequestMicrophonePermission].
+     * Creates a [PermissionStrings] that represents the default strings used of the [RequestMicrophonePermission].
      *
-     * @param permissionTitle The text to be displayed in the title in [RequestMicrophonePermission].
-     * @param permissionRationalMessage The text to be displayed in the rational message in [RequestMicrophonePermission].
-     * @param permissionDeniedMessage The text to be displayed in the denied message in [RequestMicrophonePermission].
-     * @param continueButtonText The text to be displayed in continue button in [RequestMicrophonePermission].
-     * @param goToSettingsButtonText The text to be displayed in go to settings button in [RequestMicrophonePermission].
+     * @param permissionTitle The text to be displayed in the title of the [RequestMicrophonePermission].
+     * @param permissionRationalMessage The text to be displayed in the rational message of the [RequestMicrophonePermission].
+     * @param permissionDeniedMessage The text to be displayed in the denied message of the [RequestMicrophonePermission].
+     * @param continueButtonText The text to be displayed in continue button of the [RequestMicrophonePermission].
+     * @param goToSettingsButtonText The text to be displayed in go to settings button of the [RequestMicrophonePermission].
      */
     @Composable
     fun microphoneStrings(
@@ -95,7 +95,7 @@ object RequestPermissionDefaults {
         permissionDeniedMessage: String = stringResource(string.microphone_permission_denied_message),
         continueButtonText: String = stringResource(string.continue_button_text),
         goToSettingsButtonText: String = stringResource(string.open_settings_button_text)
-    ): RequestPermissionStrings = DefaultPermissionsStrings(
+    ): PermissionStrings = DefaultPermissionsStrings(
         permissionTitle = permissionTitle,
         permissionRationalMessage = permissionRationalMessage,
         permissionDeniedMessage = permissionDeniedMessage,
@@ -104,13 +104,13 @@ object RequestPermissionDefaults {
     )
 
     /**
-     * Creates a [RequestPermissionStrings] that represents the default strings used in [RequestLocationPermission].
+     * Creates a [PermissionStrings] that represents the default strings used of the [RequestLocationPermission].
      *
-     * @param permissionTitle The text to be displayed in the title in [RequestLocationPermission].
-     * @param permissionRationalMessage The text to be displayed in the rational message in [RequestLocationPermission].
-     * @param permissionDeniedMessage The text to be displayed in the denied message in [RequestLocationPermission].
-     * @param continueButtonText The text to be displayed in continue button in [RequestLocationPermission].
-     * @param goToSettingsButtonText The text to be displayed in go to settings button in [RequestLocationPermission].
+     * @param permissionTitle The text to be displayed in the title of the [RequestLocationPermission].
+     * @param permissionRationalMessage The text to be displayed in the rational message of the [RequestLocationPermission].
+     * @param permissionDeniedMessage The text to be displayed in the denied message of the [RequestLocationPermission].
+     * @param continueButtonText The text to be displayed in continue button of the [RequestLocationPermission].
+     * @param goToSettingsButtonText The text to be displayed in go to settings button of the [RequestLocationPermission].
      */
     @Composable
     fun locationStrings(
@@ -119,7 +119,7 @@ object RequestPermissionDefaults {
         permissionDeniedMessage: String = stringResource(string.location_permission_denied_message),
         continueButtonText: String = stringResource(string.continue_button_text),
         goToSettingsButtonText: String = stringResource(string.open_settings_button_text)
-    ): RequestPermissionStrings = DefaultPermissionsStrings(
+    ): PermissionStrings = DefaultPermissionsStrings(
         permissionTitle = permissionTitle,
         permissionRationalMessage = permissionRationalMessage,
         permissionDeniedMessage = permissionDeniedMessage,
@@ -129,7 +129,7 @@ object RequestPermissionDefaults {
 }
 
 /**
- * Default [RequestPermissionStrings] implementation.
+ * Default [PermissionStrings] implementation.
  */
 @Immutable
 class DefaultPermissionsStrings(
@@ -138,7 +138,7 @@ class DefaultPermissionsStrings(
     private val permissionDeniedMessage: String,
     private val continueButtonText: String,
     private val goToSettingsButtonText: String,
-) : RequestPermissionStrings {
+) : PermissionStrings {
 
     @Composable
     override fun permissionTitle(): State<String> {

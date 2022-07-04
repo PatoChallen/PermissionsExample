@@ -15,7 +15,7 @@ import com.patochallen.permissions.utils.launchSettingsIntent
 @ExperimentalApi
 fun RequestPermission(
     permission: String,
-    strings: RequestPermissionStrings,
+    strings: PermissionStrings,
     @DrawableRes iconId: Int,
     content: @Composable (() -> Unit)
 ) = RequestPermission(
