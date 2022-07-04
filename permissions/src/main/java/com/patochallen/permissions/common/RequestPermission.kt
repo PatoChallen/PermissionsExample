@@ -1,5 +1,6 @@
 package com.patochallen.permissions.common
 
+import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import com.patochallen.permissions.model.ExperimentalApi
@@ -9,6 +10,36 @@ import com.patochallen.permissions.model.PermissionStatus.Granted
 import com.patochallen.permissions.model.PermissionStatus.ShowRational
 import com.patochallen.permissions.model.rememberPermissionState
 import com.patochallen.permissions.utils.launchSettingsIntent
+
+@Composable
+@ExperimentalApi
+fun RequestPermission(
+    permission: String,
+    strings: RequestPermissionStrings,
+    @DrawableRes iconId: Int,
+    content: @Composable (() -> Unit)
+) = RequestPermission(
+    permission = permission,
+    showRationalContent = { onClick ->
+        ShowRationalContent(
+            permissionTitle = strings.permissionTitle().value,
+            rationalMessage = strings.permissionRationalMessage().value,
+            buttonText = strings.continueButtonText().value,
+            iconId = iconId,
+            onClick = onClick
+        )
+    },
+    permissionDeniedContent = { onClick ->
+        PermissionDeniedContent(
+            permissionTitle = strings.permissionTitle().value,
+            goToSettingsMessage = strings.permissionDeniedMessage().value,
+            buttonText = strings.goToSettingsButtonText().value,
+            iconId = iconId,
+            onClick = onClick
+        )
+    },
+    content = content
+)
 
 @Composable
 @ExperimentalApi

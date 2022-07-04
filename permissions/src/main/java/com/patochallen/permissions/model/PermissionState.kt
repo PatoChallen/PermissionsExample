@@ -16,8 +16,7 @@ fun rememberPermissionState(
 ): PermissionState = rememberMutablePermissionState(permission)
 
 /**
- * A state object that control and observe if the [PermissionStatus]
- * for the requested [permission] has changed.
+ * A state object that control and observe if the [PermissionStatus] for the requested [permission] has changed.
  */
 @ExperimentalApi
 @Stable

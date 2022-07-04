@@ -16,14 +16,12 @@ sealed interface PermissionStatus {
     object Granted : PermissionStatus
 
     /**
-     * Indicates that the permission was already denied by the user once,
-     * and should be show a rational
+     * Indicates that the permission was already denied by the user once, and should be show a rational
      */
     object ShowRational : PermissionStatus
 
     /**
-     * Indicates that the user has already denied the permission,
-     * and must grant it manually from the settings
+     * Indicates that the user has already denied the permission, and must grant it manually from the settings
      */
     object Denied : PermissionStatus
 }

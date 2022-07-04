@@ -72,8 +72,7 @@ internal fun rememberMutablePermissionState(
 }
 
 /**
- * A mutable state object that control and observe if the [PermissionStatus]
- * for the requested [permission] has changed.
+ * A mutable state object that control and observe if the [PermissionStatus] for the requested [permission] has changed.
  *
  * @param permission the permission to check.
  * @param context is required to check if the requested [permission] is granted.
