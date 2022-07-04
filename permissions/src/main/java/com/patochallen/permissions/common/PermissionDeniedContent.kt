@@ -1,5 +1,6 @@
 package com.patochallen.permissions.common
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -33,6 +34,7 @@ internal fun PermissionDeniedContent(
     permissionTitle: String,
     goToSettingsMessage: String,
     buttonText: String,
+    @DrawableRes iconId: Int,
     onClick: () -> Unit
 ) {
     PermissionContentWrapper(
@@ -43,12 +45,11 @@ internal fun PermissionDeniedContent(
             Box(
                 modifier = Modifier
                     .size(250.dp)
-                    .shadow(15.dp, CircleShape, false)
-                    .padding(10.dp),
+                    .shadow(15.dp, CircleShape, false),
                 contentAlignment = Alignment.Center
             ) {
                 Image(
-                    painter = painterResource(id = drawable.location),
+                    painter = painterResource(id = iconId),
                     contentDescription = "Permission Icon",
                     modifier = Modifier
                         .fillMaxSize()
