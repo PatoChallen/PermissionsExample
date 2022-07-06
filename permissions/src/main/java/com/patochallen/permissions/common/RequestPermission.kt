@@ -11,8 +11,8 @@ import com.patochallen.permissions.model.PermissionStatus.ShowRational
 import com.patochallen.permissions.model.rememberPermissionState
 import com.patochallen.permissions.utils.launchSettingsIntent
 
-@Composable
 @ExperimentalApi
+@Composable
 fun RequestPermission(
     permission: String,
     strings: PermissionStrings,
@@ -41,8 +41,8 @@ fun RequestPermission(
     content = content
 )
 
-@Composable
 @ExperimentalApi
+@Composable
 internal fun RequestPermission(
     permission: String,
     showRationalContent: @Composable ((onClick: () -> Unit) -> Unit),
