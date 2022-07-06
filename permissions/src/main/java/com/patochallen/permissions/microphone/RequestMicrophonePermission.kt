@@ -8,8 +8,8 @@ import com.patochallen.permissions.common.PermissionStrings
 import com.patochallen.permissions.common.RequestPermission
 import com.patochallen.permissions.model.ExperimentalApi
 
-@Composable
 @ExperimentalApi
+@Composable
 fun RequestMicrophonePermission(
     strings: PermissionStrings = PermissionDefaults.microphoneStrings(),
     content: @Composable (() -> Unit)
