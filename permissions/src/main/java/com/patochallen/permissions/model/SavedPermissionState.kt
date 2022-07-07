@@ -2,25 +2,26 @@ package com.patochallen.permissions.model
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
 
 /**
- * remember the [PermissionState] across compositions.
+ * remember the [SavedPermissionState] across compositions.
  *
  * @param permission the permission to check.
- * @return a [PermissionState]
+ * @return a [SavedPermissionState]
  */
-@ExperimentalApi
+@ExperimentalPermissionsApi
 @Composable
-fun rememberPermissionState(
+fun rememberSavedPermissionState(
     permission: String
-): PermissionState = rememberMutablePermissionState(permission)
+): SavedPermissionState = rememberSavedMutablePermissionState(permission)
 
 /**
- * A state object that control and observe if the [PermissionStatus] for the requested [permission] has changed.
+ * A state object that control and observe if the [SavedPermissionStatus] for the requested [permission] has changed.
  */
-@ExperimentalApi
+@ExperimentalPermissionsApi
 @Stable
-interface PermissionState {
+interface SavedPermissionState {
 
     /**
      * The permission to check.
@@ -30,7 +31,7 @@ interface PermissionState {
     /**
      * The status of the [permission]
      */
-    val status: PermissionStatus
+    val status: SavedPermissionStatus
 
     /**
      * Request the [permission] to the user.
