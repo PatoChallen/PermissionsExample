@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.patochallen.permissions.model.ExperimentalPermissionApi
 import com.patochallen.permissions.model.SavedPermissionState
 import com.patochallen.permissions.model.SavedPermissionStatus.Denied
 import com.patochallen.permissions.model.SavedPermissionStatus.Granted
@@ -11,9 +12,9 @@ import com.patochallen.permissions.model.SavedPermissionStatus.ShowRationale
 import com.patochallen.permissions.model.rememberSavedPermissionState
 import com.patochallen.permissions.utils.launchSettingsIntent
 
-@OptIn(ExperimentalPermissionsApi::class)
+@ExperimentalPermissionApi
 @Composable
-fun RequestPermission(
+internal fun RequestPermission(
     permission: String,
     strings: PermissionStrings,
     @DrawableRes iconId: Int,
@@ -41,7 +42,7 @@ fun RequestPermission(
     content = content
 )
 
-@ExperimentalPermissionsApi
+@OptIn(ExperimentalPermissionsApi::class)
 @Composable
 internal fun RequestPermission(
     permission: String,
