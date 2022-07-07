@@ -37,7 +37,9 @@ internal fun ShowRationalContent(
             Image(
                 painter = painterResource(id = iconId),
                 contentDescription = "Permission Icon",
-                modifier = Modifier.size(250.dp).shadow(15.dp, CircleShape)
+                modifier = Modifier
+                    .size(250.dp)
+                    .shadow(15.dp, CircleShape)
             )
             Spacer(modifier = Modifier.height(70.dp))
             Text(
@@ -50,7 +52,8 @@ internal fun ShowRationalContent(
                 text = rationalMessage,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(20.dp),
+                    .padding(horizontal = 32.dp)
+                    .padding(16.dp),
                 style = MaterialTheme.typography.subtitle1,
                 textAlign = TextAlign.Center,
                 lineHeight = 25.sp
