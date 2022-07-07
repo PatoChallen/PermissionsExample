@@ -46,6 +46,9 @@ dependencies {
     implementation "androidx.compose.material:material:$rootProject.ext.versions.compose"
     implementation "androidx.activity:activity-compose:$rootProject.ext.versions.activityCompose"
 
+    // Accompanist Permissions
+    implementation "com.google.accompanist:accompanist-permissions:$rootProject.ext.versions.permissions"
+
     debugImplementation "androidx.compose.ui:ui-tooling:$rootProject.ext.versions.compose"
 }
 

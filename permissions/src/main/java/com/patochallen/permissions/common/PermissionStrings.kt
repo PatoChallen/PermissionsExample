@@ -27,7 +27,7 @@ interface PermissionStrings {
     fun permissionTitle(): State<String>
 
     /**
-     * Represents the text to be displayed in the rational message.
+     * Represents the text to be displayed in the rationale message.
      */
     @Composable
     fun permissionRationalMessage(): State<String>
@@ -59,7 +59,7 @@ object PermissionDefaults {
      * Creates a [PermissionStrings] that represents the default strings used of the [RequestCameraPermission].
      *
      * @param permissionTitle The text to be displayed in the title of the [RequestCameraPermission].
-     * @param permissionRationalMessage The text to be displayed in the rational message of the [RequestCameraPermission].
+     * @param permissionRationalMessage The text to be displayed in the rationale message of the [RequestCameraPermission].
      * @param permissionDeniedMessage The text to be displayed in the denied message of the [RequestCameraPermission].
      * @param continueButtonText The text to be displayed in continue button of the [RequestCameraPermission].
      * @param goToSettingsButtonText The text to be displayed in go to settings button of the [RequestCameraPermission].
@@ -83,7 +83,7 @@ object PermissionDefaults {
      * Creates a [PermissionStrings] that represents the default strings used of the [RequestMicrophonePermission].
      *
      * @param permissionTitle The text to be displayed in the title of the [RequestMicrophonePermission].
-     * @param permissionRationalMessage The text to be displayed in the rational message of the [RequestMicrophonePermission].
+     * @param permissionRationalMessage The text to be displayed in the rationale message of the [RequestMicrophonePermission].
      * @param permissionDeniedMessage The text to be displayed in the denied message of the [RequestMicrophonePermission].
      * @param continueButtonText The text to be displayed in continue button of the [RequestMicrophonePermission].
      * @param goToSettingsButtonText The text to be displayed in go to settings button of the [RequestMicrophonePermission].
@@ -107,7 +107,7 @@ object PermissionDefaults {
      * Creates a [PermissionStrings] that represents the default strings used of the [RequestLocationPermission].
      *
      * @param permissionTitle The text to be displayed in the title of the [RequestLocationPermission].
-     * @param permissionRationalMessage The text to be displayed in the rational message of the [RequestLocationPermission].
+     * @param permissionRationalMessage The text to be displayed in the rationale message of the [RequestLocationPermission].
      * @param permissionDeniedMessage The text to be displayed in the denied message of the [RequestLocationPermission].
      * @param continueButtonText The text to be displayed in continue button of the [RequestLocationPermission].
      * @param goToSettingsButtonText The text to be displayed in go to settings button of the [RequestLocationPermission].

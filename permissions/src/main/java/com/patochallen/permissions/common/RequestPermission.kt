@@ -3,15 +3,15 @@ package com.patochallen.permissions.common
 import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
-import com.patochallen.permissions.model.ExperimentalApi
-import com.patochallen.permissions.model.PermissionState
-import com.patochallen.permissions.model.PermissionStatus.Denied
-import com.patochallen.permissions.model.PermissionStatus.Granted
-import com.patochallen.permissions.model.PermissionStatus.ShowRational
-import com.patochallen.permissions.model.rememberPermissionState
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.patochallen.permissions.model.SavedPermissionState
+import com.patochallen.permissions.model.SavedPermissionStatus.Denied
+import com.patochallen.permissions.model.SavedPermissionStatus.Granted
+import com.patochallen.permissions.model.SavedPermissionStatus.ShowRationale
+import com.patochallen.permissions.model.rememberSavedPermissionState
 import com.patochallen.permissions.utils.launchSettingsIntent
 
-@ExperimentalApi
+@OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun RequestPermission(
     permission: String,
@@ -41,7 +41,7 @@ fun RequestPermission(
     content = content
 )
 
-@ExperimentalApi
+@ExperimentalPermissionsApi
 @Composable
 internal fun RequestPermission(
     permission: String,
@@ -50,15 +50,15 @@ internal fun RequestPermission(
     content: @Composable (() -> Unit)
 ) {
     val context = LocalContext.current
-    val permissionState: PermissionState = rememberPermissionState(permission)
+    val savedPermissionState: SavedPermissionState = rememberSavedPermissionState(permission)
 
-    when (permissionState.status) {
+    when (savedPermissionState.status) {
         Granted -> {
             content()
         }
-        ShowRational -> {
+        ShowRationale -> {
             showRationalContent {
-                permissionState.requestPermission()
+                savedPermissionState.requestPermission()
             }
         }
         is Denied -> {
