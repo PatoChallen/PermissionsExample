@@ -17,6 +17,7 @@ import com.patochallen.permissions.contacts.RequestContactsPermission
 import com.patochallen.permissions.location.RequestLocationPermission
 import com.patochallen.permissions.microphone.RequestMicrophonePermission
 import com.patochallen.permissions.model.ExperimentalPermissionApi
+import com.patochallen.permissions.storage.RequestStoragePermission
 
 @OptIn(ExperimentalPermissionApi::class)
 class MainActivity : ComponentActivity() {
@@ -30,12 +31,14 @@ class MainActivity : ComponentActivity() {
                         .padding(15.dp),
                     color = MaterialTheme.colors.background
                 ) {
-                    RequestContactsPermission {
-                        RequestLocationPermission {
-                            RequestMicrophonePermission {
-                                RequestCameraPermission {
-                                    Box(contentAlignment = Alignment.Center) {
-                                        Text(text = "PERMISSIONS GRANTED")
+                    RequestStoragePermission {
+                        RequestContactsPermission() {
+                            RequestLocationPermission {
+                                RequestMicrophonePermission {
+                                    RequestCameraPermission {
+                                        Box(contentAlignment = Alignment.Center) {
+                                            Text(text = "PERMISSIONS GRANTED")
+                                        }
                                     }
                                 }
                             }
