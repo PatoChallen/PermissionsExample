@@ -9,6 +9,9 @@
     <string name="location_title">Enable Location</string>
     <string name="location_rational_message">Please provide access to\nyour location, which is required\nfor use the App</string>
     <string name="location_permission_denied_message">The permission has been denied\ntwo times, please open settings\nand grant permissions manually</string>
+    <string name="contacts_title">Allow Contacts Access</string>
+    <string name="contacts_rational_message">Please provide access to\nyour contacts, which is required\nfor use the App</string>
+    <string name="contacts_permission_denied_message">The permission has been denied\ntwo times, please open settings\nand grant permissions manually</string>
     <string name="continue_button_text">Continue</string>
     <string name="open_settings_button_text">Open settings</string>
 </resources>

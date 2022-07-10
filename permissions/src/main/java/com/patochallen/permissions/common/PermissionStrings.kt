@@ -8,6 +8,7 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.res.stringResource
 import com.patochallen.permissions.R.string
 import com.patochallen.permissions.camera.RequestCameraPermission
+import com.patochallen.permissions.contacts.RequestContactsPermission
 import com.patochallen.permissions.location.RequestLocationPermission
 import com.patochallen.permissions.microphone.RequestMicrophonePermission
 
@@ -117,6 +118,30 @@ object PermissionDefaults {
         permissionTitle: String = stringResource(string.location_title),
         permissionRationalMessage: String = stringResource(string.location_rational_message),
         permissionDeniedMessage: String = stringResource(string.location_permission_denied_message),
+        continueButtonText: String = stringResource(string.continue_button_text),
+        goToSettingsButtonText: String = stringResource(string.open_settings_button_text)
+    ): PermissionStrings = DefaultPermissionsStrings(
+        permissionTitle = permissionTitle,
+        permissionRationalMessage = permissionRationalMessage,
+        permissionDeniedMessage = permissionDeniedMessage,
+        continueButtonText = continueButtonText,
+        goToSettingsButtonText = goToSettingsButtonText
+    )
+
+    /**
+     * Creates a [PermissionStrings] that represents the default strings used of the [RequestContactsPermission].
+     *
+     * @param permissionTitle The text to be displayed in the title of the [RequestContactsPermission].
+     * @param permissionRationalMessage The text to be displayed in the rationale message of the [RequestContactsPermission].
+     * @param permissionDeniedMessage The text to be displayed in the denied message of the [RequestContactsPermission].
+     * @param continueButtonText The text to be displayed in continue button of the [RequestContactsPermission].
+     * @param goToSettingsButtonText The text to be displayed in go to settings button of the [RequestContactsPermission].
+     */
+    @Composable
+    fun contactStrings(
+        permissionTitle: String = stringResource(string.contacts_title),
+        permissionRationalMessage: String = stringResource(string.contacts_rational_message),
+        permissionDeniedMessage: String = stringResource(string.contacts_permission_denied_message),
         continueButtonText: String = stringResource(string.continue_button_text),
         goToSettingsButtonText: String = stringResource(string.open_settings_button_text)
     ): PermissionStrings = DefaultPermissionsStrings(
