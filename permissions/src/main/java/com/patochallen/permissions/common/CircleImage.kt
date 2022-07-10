@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 
+@Suppress("MagicNumber")
 @Composable
 internal fun CircleImage(
     @DrawableRes iconId: Int,
@@ -20,13 +21,13 @@ internal fun CircleImage(
     Icon(
         painter = painterResource(id = iconId),
         contentDescription = "",
-        tint = MaterialTheme.colors.onPrimary.copy(alpha = .79f),
+        tint = MaterialTheme.colors.onPrimary.copy(alpha = 0.8f),
         modifier = modifier
             .background(
                 brush = Brush.radialGradient(
-                    .0f to MaterialTheme.colors.primary.copy(alpha = .5f),
-                    .88f to MaterialTheme.colors.primary,
-                    .94f to MaterialTheme.colors.primary.copy(alpha = .25f),
+                    0f to MaterialTheme.colors.primary.copy(alpha = 0.5f),
+                    0.88f to MaterialTheme.colors.primary,
+                    0.94f to MaterialTheme.colors.primary.copy(alpha = 0.25f),
                     1f to MaterialTheme.colors.primary
                 ),
                 shape = CircleShape
