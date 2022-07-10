@@ -16,6 +16,6 @@ fun RequestMicrophonePermission(
 ) = RequestPermission(
     permission = permission.RECORD_AUDIO,
     strings = strings,
-    iconId = R.drawable.microphone,
+    iconId = R.drawable.ic_microphone,
     content = content
 )

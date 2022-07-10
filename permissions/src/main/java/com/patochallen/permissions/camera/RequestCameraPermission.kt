@@ -16,6 +16,6 @@ fun RequestCameraPermission(
 ) = RequestPermission(
     permission = permission.CAMERA,
     strings = strings,
-    iconId = R.drawable.camera,
+    iconId = R.drawable.ic_camera,
     content = content
 )

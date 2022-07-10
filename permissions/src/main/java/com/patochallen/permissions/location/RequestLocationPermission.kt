@@ -16,6 +16,6 @@ fun RequestLocationPermission(
 ) = RequestPermission(
     permission = permission.ACCESS_COARSE_LOCATION,
     strings = strings,
-    iconId = R.drawable.location,
+    iconId = R.drawable.ic_location,
     content = content
 )
