@@ -1,7 +1,6 @@
 package com.patochallen.permissions.common
 
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,7 +14,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -34,9 +32,8 @@ internal fun ShowRationalContent(
         onClick = onClick
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Image(
-                painter = painterResource(id = iconId),
-                contentDescription = "Permission Icon",
+            CircleImage(
+                iconId = iconId,
                 modifier = Modifier
                     .size(250.dp)
                     .shadow(15.dp, CircleShape)

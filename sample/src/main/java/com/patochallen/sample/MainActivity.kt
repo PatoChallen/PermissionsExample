@@ -14,14 +14,13 @@ import com.patochallen.permissions.camera.RequestCameraPermission
 import com.patochallen.permissions.location.RequestLocationPermission
 import com.patochallen.permissions.microphone.RequestMicrophonePermission
 import com.patochallen.permissions.model.ExperimentalPermissionApi
-import com.patochallen.sample.ui.theme.PermissionsSampleTheme
 
 @OptIn(ExperimentalPermissionApi::class)
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            PermissionsSampleTheme {
+            MaterialTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
