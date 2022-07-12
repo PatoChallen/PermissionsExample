@@ -62,4 +62,7 @@ dependencies {
 //    implementation "androidx.hilt:hilt-navigation-compose:$rootProject.ext.versions.hiltCompose"
     implementation "com.google.dagger:hilt-android:$hiltVersion"
     kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
+
+    // Coil
+    implementation "io.coil-kt:coil-compose:$rootProject.ext.versions.coil"
 }

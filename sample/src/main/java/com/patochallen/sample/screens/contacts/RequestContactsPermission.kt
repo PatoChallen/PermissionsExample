@@ -1,4 +1,4 @@
-package com.patochallen.permissions.contacts
+package com.patochallen.sample.screens.contacts
 
 import android.Manifest.permission
 import androidx.compose.runtime.Composable

@@ -21,6 +21,8 @@ ext {
             // https://github.com/material-components/material-components-android/releases
             material       : "1.6.1",
             // https://github.com/google/accompanist/tree/main/permissions
-            permissions    : "0.24.13-rc"
+            permissions    : "0.24.13-rc",
+            // https://coil-kt.github.io/coil/compose
+            coil           : "2.1.0"
     ]
 }
