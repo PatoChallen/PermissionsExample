@@ -5,20 +5,19 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.rememberUpdatedState
-import androidx.compose.ui.res.stringResource
-import com.patochallen.permissions.R.string
 import com.patochallen.permissions.camera.RequestCameraPermission
-import com.patochallen.permissions.contacts.RequestContactsPermission
+import com.patochallen.permissions.camera.cameraStrings
 import com.patochallen.permissions.location.RequestLocationPermission
+import com.patochallen.permissions.location.locationStrings
 import com.patochallen.permissions.microphone.RequestMicrophonePermission
-import com.patochallen.permissions.storage.RequestStoragePermission
+import com.patochallen.permissions.microphone.microphoneStrings
 
 /**
  * Represents the strings used in all permission requests
  *
- * See [PermissionDefaults.cameraStrings] for the default strings used in a [RequestCameraPermission].
- * See [PermissionDefaults.microphoneStrings] for the default strings used in a [RequestMicrophonePermission].
- * See [PermissionDefaults.locationStrings] for the default strings used in a [RequestLocationPermission].
+ * See [cameraStrings] for the default strings used in a [RequestCameraPermission].
+ * See [microphoneStrings] for the default strings used in a [RequestMicrophonePermission].
+ * See [locationStrings] for the default strings used in a [RequestLocationPermission].
  */
 @Stable
 interface PermissionStrings {
@@ -51,131 +50,6 @@ interface PermissionStrings {
      */
     @Composable
     fun goToSettingsButtonText(): State<String>
-}
-
-/**
- * Contains the default strings used in all permission requests
- */
-object PermissionDefaults {
-    /**
-     * Creates a [PermissionStrings] that represents the default strings used of the [RequestCameraPermission].
-     *
-     * @param permissionTitle The text to be displayed in the title of the [RequestCameraPermission].
-     * @param permissionRationalMessage The text to be displayed in the rationale message of the [RequestCameraPermission].
-     * @param permissionDeniedMessage The text to be displayed in the denied message of the [RequestCameraPermission].
-     * @param continueButtonText The text to be displayed in continue button of the [RequestCameraPermission].
-     * @param goToSettingsButtonText The text to be displayed in go to settings button of the [RequestCameraPermission].
-     */
-    @Composable
-    fun cameraStrings(
-        permissionTitle: String = stringResource(string.camera_title),
-        permissionRationalMessage: String = stringResource(string.camera_rational_message),
-        permissionDeniedMessage: String = stringResource(string.camera_permission_denied_message),
-        continueButtonText: String = stringResource(string.continue_button_text),
-        goToSettingsButtonText: String = stringResource(string.open_settings_button_text)
-    ): PermissionStrings = DefaultPermissionsStrings(
-        permissionTitle = permissionTitle,
-        permissionRationalMessage = permissionRationalMessage,
-        permissionDeniedMessage = permissionDeniedMessage,
-        continueButtonText = continueButtonText,
-        goToSettingsButtonText = goToSettingsButtonText
-    )
-
-    /**
-     * Creates a [PermissionStrings] that represents the default strings used of the [RequestMicrophonePermission].
-     *
-     * @param permissionTitle The text to be displayed in the title of the [RequestMicrophonePermission].
-     * @param permissionRationalMessage The text to be displayed in the rationale message of the [RequestMicrophonePermission].
-     * @param permissionDeniedMessage The text to be displayed in the denied message of the [RequestMicrophonePermission].
-     * @param continueButtonText The text to be displayed in continue button of the [RequestMicrophonePermission].
-     * @param goToSettingsButtonText The text to be displayed in go to settings button of the [RequestMicrophonePermission].
-     */
-    @Composable
-    fun microphoneStrings(
-        permissionTitle: String = stringResource(string.microphone_title),
-        permissionRationalMessage: String = stringResource(string.microphone_rational_message),
-        permissionDeniedMessage: String = stringResource(string.microphone_permission_denied_message),
-        continueButtonText: String = stringResource(string.continue_button_text),
-        goToSettingsButtonText: String = stringResource(string.open_settings_button_text)
-    ): PermissionStrings = DefaultPermissionsStrings(
-        permissionTitle = permissionTitle,
-        permissionRationalMessage = permissionRationalMessage,
-        permissionDeniedMessage = permissionDeniedMessage,
-        continueButtonText = continueButtonText,
-        goToSettingsButtonText = goToSettingsButtonText
-    )
-
-    /**
-     * Creates a [PermissionStrings] that represents the default strings used of the [RequestLocationPermission].
-     *
-     * @param permissionTitle The text to be displayed in the title of the [RequestLocationPermission].
-     * @param permissionRationalMessage The text to be displayed in the rationale message of the [RequestLocationPermission].
-     * @param permissionDeniedMessage The text to be displayed in the denied message of the [RequestLocationPermission].
-     * @param continueButtonText The text to be displayed in continue button of the [RequestLocationPermission].
-     * @param goToSettingsButtonText The text to be displayed in go to settings button of the [RequestLocationPermission].
-     */
-    @Composable
-    fun locationStrings(
-        permissionTitle: String = stringResource(string.location_title),
-        permissionRationalMessage: String = stringResource(string.location_rational_message),
-        permissionDeniedMessage: String = stringResource(string.location_permission_denied_message),
-        continueButtonText: String = stringResource(string.continue_button_text),
-        goToSettingsButtonText: String = stringResource(string.open_settings_button_text)
-    ): PermissionStrings = DefaultPermissionsStrings(
-        permissionTitle = permissionTitle,
-        permissionRationalMessage = permissionRationalMessage,
-        permissionDeniedMessage = permissionDeniedMessage,
-        continueButtonText = continueButtonText,
-        goToSettingsButtonText = goToSettingsButtonText
-    )
-
-    /**
-     * Creates a [PermissionStrings] that represents the default strings used of the [RequestContactsPermission].
-     *
-     * @param permissionTitle The text to be displayed in the title of the [RequestContactsPermission].
-     * @param permissionRationalMessage The text to be displayed in the rationale message of the [RequestContactsPermission].
-     * @param permissionDeniedMessage The text to be displayed in the denied message of the [RequestContactsPermission].
-     * @param continueButtonText The text to be displayed in continue button of the [RequestContactsPermission].
-     * @param goToSettingsButtonText The text to be displayed in go to settings button of the [RequestContactsPermission].
-     */
-    @Composable
-    fun contactStrings(
-        permissionTitle: String = stringResource(string.contacts_title),
-        permissionRationalMessage: String = stringResource(string.contacts_rational_message),
-        permissionDeniedMessage: String = stringResource(string.contacts_permission_denied_message),
-        continueButtonText: String = stringResource(string.continue_button_text),
-        goToSettingsButtonText: String = stringResource(string.open_settings_button_text)
-    ): PermissionStrings = DefaultPermissionsStrings(
-        permissionTitle = permissionTitle,
-        permissionRationalMessage = permissionRationalMessage,
-        permissionDeniedMessage = permissionDeniedMessage,
-        continueButtonText = continueButtonText,
-        goToSettingsButtonText = goToSettingsButtonText
-    )
-
-    /**
-     * Creates a [PermissionStrings] that represents the default strings used of the [RequestStoragePermission].
-     *
-     * @param permissionTitle The text to be displayed in the title of the [RequestStoragePermission].
-     * @param permissionRationalMessage The text to be displayed in the rationale message of the [RequestStoragePermission].
-     * @param permissionDeniedMessage The text to be displayed in the denied message of the [RequestStoragePermission].
-     * @param continueButtonText The text to be displayed in continue button of the [RequestStoragePermission].
-     * @param goToSettingsButtonText The text to be displayed in go to settings button of the [RequestStoragePermission].
-     */
-    @Composable
-    fun storageStrings(
-        permissionTitle: String = stringResource(string.storage_title),
-        permissionRationalMessage: String = stringResource(string.storage_rational_message),
-        permissionDeniedMessage: String = stringResource(string.storage_permission_denied_message),
-        continueButtonText: String = stringResource(string.continue_button_text),
-        goToSettingsButtonText: String = stringResource(string.open_settings_button_text)
-    ): PermissionStrings = DefaultPermissionsStrings(
-        permissionTitle = permissionTitle,
-        permissionRationalMessage = permissionRationalMessage,
-        permissionDeniedMessage = permissionDeniedMessage,
-        continueButtonText = continueButtonText,
-        goToSettingsButtonText = goToSettingsButtonText
-    )
 }
 
 /**
