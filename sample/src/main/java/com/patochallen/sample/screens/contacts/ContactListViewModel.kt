@@ -1,6 +1,5 @@
 package com.patochallen.sample.screens.contacts
 
-import android.annotation.SuppressLint
 import android.content.ContentResolver
 import android.database.Cursor
 import android.provider.ContactsContract.CommonDataKinds.Email
@@ -43,7 +42,7 @@ class ContactListViewModel @Inject constructor(
         return contacts
     }
 
-    @SuppressLint("Range")
+    @Suppress("Range", "TooGenericExceptionCaught", "PrintStackTrace")
     private fun Cursor.getContact(): Contact? = try {
         val id = getString(getColumnIndex(Contacts._ID)).orEmpty()
         val name = getString(getColumnIndex(Contacts.DISPLAY_NAME)).orEmpty()
@@ -64,6 +63,7 @@ class ContactListViewModel @Inject constructor(
         null
     }
 
+    @Suppress("TooGenericExceptionCaught", "PrintStackTrace")
     private fun contactHasEmail(contactId: String): Boolean = try {
         resolver.query(
             /* uri = */ Email.CONTENT_URI,
